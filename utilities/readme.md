@@ -106,11 +106,11 @@
 
 
 #### `async trackPackageGroupFlow(page, networkTracking)`
-- **Description:** Tracks the flow of a package group. It starts by monitoring the `/YOUR API` API to retrieve the `packageGroupID`. The retrieved `packageGroupID` is then used to make a request to `/v1/package/run-package-group/${packageGroupID}`, where the `jobID` is extracted. The process continues by tracking the `/v1/package/package-group-status/${jobID}` API. Finally, using the `waitForNoMoreRequestsForPath` function, the last specified API is monitored, and the final request's JSON response is logged to the console..
+- **Description:** Tracks the flow of a package group. It starts by monitoring the `/YOUR API` API to retrieve the `packageGroupID`. The retrieved `packageGroupID` is then used to make a request to `/YOUR API/${packageGroupID}`, where the `jobID` is extracted. The process continues by tracking the `/YOUR API/${jobID}` API. Finally, using the `waitForNoMoreRequestsForPath` function, the last specified API is monitored, and the final request's JSON response is logged to the console..
 - **Error Handling:** If a request is not made within a certain number of seconds, the control ends. If the request waits for more than a certain period of time, the check ends.
 
 
 
 #### `async trackReportFlow(page, networkTracking)`
-- **Description:** Tracks the flow of a report. It starts by monitoring the `/package/insight/list` API to retrieve the `packages` value. The retrieved value is then used in the `/v1/package/run-package/${packagesArray[0]}` API, where `reportID` and `clientID` are extracted. These values are then used in the `/v1/clients/${clientID}/reports/${reportID}` API. Finally, the `waitForNoMoreRequestsForPath` function monitors the specified API until the last request is made, and the response of the final request is logged to the console in JSON format.
+- **Description:** Tracks the flow of a report. It starts by monitoring the `/YOUR API` API to retrieve the `packages` value. The retrieved value is then used in the `/YOUR API/${packagesArray[0]}` API, where `reportID` and `clientID` are extracted. These values are then used in the `/YOUR API/${reportID}` API. Finally, the `waitForNoMoreRequestsForPath` function monitors the specified API until the last request is made, and the response of the final request is logged to the console in JSON format.
 - **Error Handling:** If a request is not made within a certain number of seconds, the control ends. If the request waits for more than a certain period of time, the check ends.
